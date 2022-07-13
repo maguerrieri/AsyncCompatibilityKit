@@ -23,6 +23,8 @@ final class PublisherTests: XCTestCase {
         }
 
         Task {
+            try await Task.sleep(nanoseconds: 100_000)
+
             subject.send(1)
             subject.send(2)
             subject.send(3)
@@ -47,6 +49,8 @@ final class PublisherTests: XCTestCase {
         }
 
         Task {
+            try await Task.sleep(nanoseconds: 100_000)
+
             subject.send(1)
             subject.send(2)
             subject.send(3)
@@ -70,6 +74,8 @@ final class PublisherTests: XCTestCase {
         }
 
         Task {
+            try await Task.sleep(nanoseconds: 100_000)
+            
             subject.send(1)
             subject.send(2)
             subject.send(3)
