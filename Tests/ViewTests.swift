@@ -101,9 +101,17 @@ final class ViewTests: XCTestCase {
 }
 
 private extension ViewTests {
+#if canImport(UIKit)
     func showView<T: View>(_ view: T) {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: view)
         window.makeKeyAndVisible()
     }
+#elseif canImport(AppKit)
+    func showView<T: View>(_ view: T) {
+        let window = NSWindow()
+        window.contentViewController = NSHostingController(rootView: view)
+        window.makeKey()
+    }
+#endif
 }
