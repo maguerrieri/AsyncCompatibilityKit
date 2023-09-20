@@ -14,6 +14,7 @@ public extension View {
     /// - parameter priority: Any explicit priority that the async
     ///   task should have.
     /// - parameter action: The async action that the task should run.
+    @_disfavoredOverload
     func task(
         priority: TaskPriority = .userInitiated,
         _ action: @escaping () async -> Void
