@@ -12,7 +12,7 @@ public extension Publisher {
     /// can be iterated over asynchronously using `for try await`.
     /// The stream will yield each output value produced by the
     /// publisher and will finish once the publisher completes.
-    var values: AsyncThrowingStream<Output, Error> {
+    var valuesBackport: AsyncThrowingStream<Output, Error> {
         AsyncThrowingStream { continuation in
             var cancellable: AnyCancellable?
             let onTermination = { cancellable?.cancel() }
@@ -43,7 +43,7 @@ public extension Publisher where Failure == Never {
     /// be iterated over asynchronously using `for await`. The
     /// stream will yield each output value produced by the
     /// publisher and will finish once the publisher completes.
-    var values: AsyncStream<Output> {
+    var valuesBackport: AsyncStream<Output> {
         AsyncStream { continuation in
             var cancellable: AnyCancellable?
             let onTermination = { cancellable?.cancel() }
